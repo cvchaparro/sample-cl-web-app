@@ -75,3 +75,9 @@
               (:li
                (:a :href (format nil "vote.htm?name=~a" (name game)) "Vote!")
                (fmt "~A with ~d votes" (name game) (votes game)))))))))
+
+(define-url-fn (vote)
+  (let ((game (game-from-name (parameter "name"))))
+    (when game
+      (vote-for game))
+    (redirect "/retro-games.htm")))
