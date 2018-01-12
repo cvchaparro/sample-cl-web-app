@@ -4,5 +4,7 @@
 (in-package :retro-games)
 
 (defclass game ()
-  ((name :initarg :name)
-   (votes :initform 0)))
+  ((name :reader name
+         :initarg :name)
+   (votes :accessor votes
+          :initform 0)))
