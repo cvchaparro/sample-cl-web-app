@@ -17,3 +17,6 @@
 (defun game-from-name (name)
   (find name *games* :test #'string-equal
                      :key #'name))
+
+(defun game-stored-p (name)
+  (game-from-name name))
