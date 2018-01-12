@@ -3,6 +3,9 @@
 
 (in-package :retro-games)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; define the structure of a game
+
 (defclass game ()
   ((name :reader name
          :initarg :name)
