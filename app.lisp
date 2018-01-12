@@ -55,9 +55,13 @@
                           "Vote on your favourite Retro Game!"))
              ,@body))))
 
-(push (create-prefix-dispatcher "/retro-games.htm" 'retro-games) *dispatch-table*)
+(defmacro define-url-fn ((name) &body body)
+  `(progn
+     (defun ,name ()
+       ,@body)
+     (push (create-prefix-dispatcher ,(format nil "/~(~a~).htm" name) ',name) *dispatch-table*)))
 
-(defun retro-games ()
+(define-url-fn (retro-games)
   (standard-page
       (:title "Retro Games")
     (:h1 "Top Retro Games")
