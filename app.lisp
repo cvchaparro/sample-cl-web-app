@@ -20,3 +20,6 @@
 
 (defun game-stored-p (name)
   (game-from-name name))
+
+(defun games ()
+  (sort (copy-list *games*) #'> :key #'votes))
