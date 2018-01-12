@@ -87,6 +87,11 @@
       (:title "Add a new game")
     (:h1 "Add a new game to the chart")
     (:form :action "/game-added.htm" :method "post"
+           :onsubmit
+           (ps-inline
+               (when (= name.value "")
+                 (alert "Please enter a valid name!")
+                 (return false)))
            (:p "What is the name of the game?" (:br)
                (:input :type "text"
                        :name "name"
