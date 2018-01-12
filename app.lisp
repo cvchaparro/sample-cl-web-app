@@ -13,3 +13,7 @@
   (incf (votes user-selected-game)))
 
 (defvar *games* nil)
+
+(defun game-from-name (name)
+  (find name *games* :test #'string-equal
+                     :key #'name))
