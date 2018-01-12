@@ -54,3 +54,11 @@
                    (:span :class "strapline"
                           "Vote on your favourite Retro Game!"))
              ,@body))))
+
+(push (create-prefix-dispatcher "/retro-games.htm" 'retro-games) *dispatch-table*)
+
+(defun retro-games ()
+  (standard-page
+      (:title "Retro Games")
+    (:h1 "Top Retro Games")
+    (:p "We'll write the code later...")))
