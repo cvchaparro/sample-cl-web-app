@@ -63,6 +63,15 @@
 
 (define-url-fn (retro-games)
   (standard-page
-      (:title "Retro Games")
-    (:h1 "Top Retro Games")
-    (:p "We'll write the code later...")))
+      (:title "Top Retro Games")
+    (:h1 "Vote on all your favourite retro games!")
+    (:p "Missing a game? Make it available for votes "
+        (:a :href "new-game.htm" "here"))
+    (:h2 "Current Stand")
+    (:div :id "chart"
+          (:ol
+           (dolist (game (games))
+             (htm
+              (:li
+               (:a :href (format nil "vote.htm?name=~a" (name game)) "Vote!")
+               (fmt "~A with ~d votes" (name game) (votes game)))))))))
