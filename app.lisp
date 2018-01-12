@@ -8,3 +8,6 @@
          :initarg :name)
    (votes :accessor votes
           :initform 0)))
+
+(defmethod vote-for (user-selected-game)
+  (incf (votes user-selected-game)))
