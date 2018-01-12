@@ -11,3 +11,5 @@
 
 (defmethod vote-for (user-selected-game)
   (incf (votes user-selected-game)))
+
+(defvar *games* nil)
