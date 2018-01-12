@@ -23,3 +23,7 @@
 
 (defun games ()
   (sort (copy-list *games*) #'> :key #'votes))
+
+(defun add-game (name)
+  (unless (game-stored-p name)
+    (push (make-instance 'game :name name) *games*)))
