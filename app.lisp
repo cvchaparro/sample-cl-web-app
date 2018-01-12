@@ -94,3 +94,10 @@
            (:p (:input :type "submit"
                        :value "Add"
                        :class "btn")))))
+
+(define-url-fn (game-added)
+  (let ((name (parameter "name")))
+    (unless (or (null name)
+                (zerop (length name)))
+      (add-game name))
+    (redirect "/retro-games.htm")))
