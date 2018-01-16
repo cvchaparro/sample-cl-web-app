@@ -1,0 +1,36 @@
+{% extends "layouts/default.html" %}
+{% block title %}Hello, {{ name }}!{% endblock %}
+{% block content %}
+<div id="main">
+    <h1 id="welcome">Hello, {{ name }}!</h1>
+    <p>{{ name }}, click <a href="/">here</a> to go back to the home page.</p>
+
+    <br>
+
+    <p>Do you want to play a tune?</p>
+    <audio controls>
+        <source src="/media/boom.ogg" type="audio/ogg">
+        Your browser doesn't support playing audio, sorry...
+    </audio>
+
+    <p>Do you want to record a tune?</p>
+    <audio id="player" controls></audio>
+    <script>
+     var player = document.getElementById('player');
+     navigator.mediaDevices
+              .getUserMedia({ audio: true, video: false })
+              .then(stream => {
+                  var context = new AudioContext();
+                  var source = context.createMediaStreamSource(stream);
+                  var processor = context.createScriptProcessor(1024, 1, 1);
+
+                  source.connect(processor);
+                  processor.connect(context.destination);
+
+                  processor.onaudioprocess = function(e) {
+                      console.log(e.inputBuffer);
+                  };
+              });
+    </script>
+</div>
+{% endblock %}

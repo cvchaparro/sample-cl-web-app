@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+}
+
+a:link {
+  color: #005585;
+  text-decoration: none;
+}
+a:visited {
+  color: #485270;
+}
+a:hover {
+  color: #b83800;
+  text-decoration: underline;
+}
+
+#main {
+  text-align: center;
+}
+
+#welcome {
+  color: #005585;
+}
+
+form {
+  text-align: left;
+  margin: auto;
+  width: 80%;
+}
+
+#name-box-label {
+  border-radius: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#name-box {
+  width: 98%;
+}

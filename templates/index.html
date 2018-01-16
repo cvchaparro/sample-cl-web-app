@@ -1,0 +1,11 @@
+{% extends "layouts/default.html" %}
+{% block title %}Hello, World!{% endblock %}
+{% block content %}
+<div id="main">
+    <h1 id="welcome">Hello, World!</h1>
+    <form action="/greet">
+        <label for="name-box" id="name-box-label">What's your name?</label><br>
+        <input id="name-box" type="text" name="person[name]" placeholder="Your name goes here..." />
+    </form>
+</div>
+{% endblock %}
